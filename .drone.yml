@@ -5,6 +5,7 @@ steps:
   - name: install
     image: angular/ngcontainer
     commands:
+      - ls -la
       - npm install
   
   - name: build
@@ -13,7 +14,6 @@ steps:
       GITHUB_APP_URL:
         from_secret: github_app_url
     commands:
-      - ls -la
       - ng build --prod --base-href="$GITHUB_APP_URL"
     
   - name: publish  
