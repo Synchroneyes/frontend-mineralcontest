@@ -5,25 +5,15 @@ steps:
   - name: install
     image: angular/ngcontainer
     user: root
-    commands:
-      - ls -l
-      - ls -l /
-      - whoami
-      - pwd
-      - npm install
-  
-  - name: build
-    image: angular/ngcontainer
-    user: root
     environment:
       GITHUB_APP_URL:
         from_secret: github_app_url
     commands:
-      - ng build --prod --base-href="$GITHUB_APP_URL"
-    
+      - npm install
+      - ng build
+
   - name: publish  
     image: plugins/gh-pages
-    user: root
     settings:
       username:
         from_secret: github_username
