@@ -1,0 +1,29 @@
+kind: pipeline
+name: deploiement application
+
+---
+
+steps:
+  - name: install
+    image: angular/ngcontainer
+    commands:
+      - npm install
+  
+  - name: build
+    image: angular/ngcontainer
+    environment:
+      GITHUB_APP_URL:
+        from_secret: github_app_url
+    commands:
+      - ng build --prod --base-href="$GITHUB_APP_URL"
+    
+  - name: publish  
+    image: plugins/gh-pages
+    settings:
+      username:
+        from_secret: github_username
+      ssh_key:
+        from_secret: github_password    
+      pages_directory: dist/frontend-mineralcontest
+    when:
+      branch: main
