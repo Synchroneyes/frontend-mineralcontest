@@ -10,7 +10,7 @@ steps:
         from_secret: github_app_url
     commands:
       - npm install
-      - npm install @angular/cli
+      - npm install -g @angular/cli
       - ng build
 
   - name: publish  
