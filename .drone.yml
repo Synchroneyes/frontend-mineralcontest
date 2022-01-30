@@ -15,6 +15,8 @@ steps:
 
   - name: publish  
     image: plugins/gh-pages
+    environment:
+      DRONE_REMOTE_URL: git@github.com:${DRONE_REPO}.git
     settings:
       username:
         from_secret: github_username
