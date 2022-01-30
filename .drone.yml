@@ -3,7 +3,7 @@ name: deploiement application
 
 steps:
   - name: install
-    image: angular/ngcontainer
+    image: node/node:16.13.2
     user: root
     environment:
       GITHUB_APP_URL:
