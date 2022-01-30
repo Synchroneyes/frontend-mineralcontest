@@ -10,7 +10,6 @@ steps:
         from_secret: github_app_url
     commands:
       - npm install
-      - npm install -g @angular/cli
 
   - name: build
     image: node:16.13.2
@@ -19,6 +18,7 @@ steps:
       GITHUB_APP_URL:
         from_secret: github_app_url
     commands:
+      - npm install -g @angular/cli
       - ng build --base-href="$GITHUB_APP_URL"
 
   - name: publish  
