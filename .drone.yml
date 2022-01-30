@@ -21,5 +21,6 @@ steps:
       ssh_key:
         from_secret: github_password    
       pages_directory: dist/frontend-mineralcontest
+      target_branch: gh-pages
     when:
       branch: main
