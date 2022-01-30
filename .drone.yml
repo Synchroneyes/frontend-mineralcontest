@@ -1,8 +1,6 @@
 kind: pipeline
 name: deploiement application
 
----
-
 steps:
   - name: install
     image: angular/ngcontainer
