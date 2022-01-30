@@ -4,6 +4,7 @@ name: deploiement application
 steps:
   - name: install
     image: angular/ngcontainer
+    user: root
     commands:
       - ls -l
       - ls -l /
@@ -13,6 +14,7 @@ steps:
   
   - name: build
     image: angular/ngcontainer
+    user: root
     environment:
       GITHUB_APP_URL:
         from_secret: github_app_url
@@ -21,6 +23,7 @@ steps:
     
   - name: publish  
     image: plugins/gh-pages
+    user: root
     settings:
       username:
         from_secret: github_username
