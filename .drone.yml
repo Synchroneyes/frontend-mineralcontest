@@ -5,7 +5,9 @@ steps:
   - name: install
     image: angular/ngcontainer
     commands:
-      - ls -la
+      - ls -l
+      - ls -l /
+      - whoami
       - pwd
       - npm install
   
